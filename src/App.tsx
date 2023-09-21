@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import * as S from './App.styled';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Main from "./containers/Main";
+import LogIn from "./components/LogIn";
+import SingUp from "./components/SingUp";
+import LoginPage from "./containers/LoginPage";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main />,
+    },
+    {
+      path: "/login",
+      element: <LoginPage><LogIn /></LoginPage>,
+    },
+    {
+      path: "/signup",
+      element: <LoginPage><SingUp /></LoginPage>,
+    }
+  ]);
+
   return (
-    <S.App>
-      <S.AppHeader>
-        <S.AppLogo src={logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <S.AppLink
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </S.AppLink>
-      </S.AppHeader>
-    </S.App>
+      <RouterProvider router={router} />
   );
 }
 
