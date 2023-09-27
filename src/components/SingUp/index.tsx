@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import Label from '../Input/Label';
 import Input from '../Input/Input';
 import Link from '../Link';
+import Checkbox from '../Checkbox';
+import Button from '../Button';
 
 import {
   FormElementContainer,
   RouteMessage,
   Title,
 } from '../../containers/LoginPage/styled';
-import { InputWithLabelContainer } from '../Input/Input.styled';
-import { Button } from '../Button/styled';
+import { InputWithLabelContainer } from '../Input/styled';
 import { TermsOfServiceTitle } from './styled';
 import { RouterLink } from '../Link/styled';
-import Checkbox from '../Checkbox';
 
 function SingUp() {
   const [username, setUsername] = useState('');

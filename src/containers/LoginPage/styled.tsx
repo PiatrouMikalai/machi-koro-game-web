@@ -36,7 +36,7 @@ export const Title = styled.h2`
 `;
 
 export const FormElementContainer = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
 `;
 
 export const RouteMessage = styled.p`

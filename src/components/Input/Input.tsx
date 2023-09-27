@@ -1,6 +1,6 @@
-import React, { FC, ChangeEvent, InputHTMLAttributes } from 'react';
+import React, { FC, ChangeEvent, InputHTMLAttributes, memo } from 'react';
 
-import * as S from './Input.styled';
+import * as S from './styled';
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
@@ -17,4 +17,4 @@ const Input: FC<InputProps> = ({ style, onChange, ...rest }) => {
   return <S.Input style={style} onChange={handleChange} {...rest} />;
 };
 
-export default Input;
+export default memo(Input);

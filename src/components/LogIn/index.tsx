@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Input from '../Input/Input';
 import Label from '../Input/Label';
+import Button from '../Button';
 
-import { InputWithLabelContainer } from '../Input/Input.styled';
-import { Button } from '../Button/styled';
+import {
+  InputMessage,
+  InputWithLabelContainer,
+  InputValidationContainer,
+} from '../Input/styled';
 import {
   FormElementContainer,
   RouteMessage,
@@ -15,6 +19,7 @@ import { RouterLink } from '../Link/styled';
 function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
 
   const handleSingIn = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,7 +29,7 @@ function LogIn() {
     <>
       <Title>Sign in to your account</Title>
       <form onSubmit={handleSingIn}>
-        <div>
+        <InputValidationContainer error={error}>
           <Label htmlFor="email">Email</Label>
           <InputWithLabelContainer>
             <Input
@@ -36,22 +41,26 @@ function LogIn() {
               onChange={setEmail}
             />
           </InputWithLabelContainer>
-        </div>
+          <InputMessage>validation message</InputMessage>
+        </InputValidationContainer>
         <FormElementContainer>
-          <PasswordTitleContainer>
-            <Label htmlFor="password">Password</Label>
-            {/*<Link href="#">Forgot password?</Link>*/}
-          </PasswordTitleContainer>
-          <InputWithLabelContainer>
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              required
-              value={password}
-              onChange={setPassword}
-            />
-          </InputWithLabelContainer>
+          <InputValidationContainer error={error}>
+            <PasswordTitleContainer>
+              <Label htmlFor="password">Password</Label>
+              {/*<Link href="#">Forgot password?</Link>*/}
+            </PasswordTitleContainer>
+            <InputWithLabelContainer>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                required
+                value={password}
+                onChange={setPassword}
+              />
+            </InputWithLabelContainer>
+            <InputMessage>validation message</InputMessage>
+          </InputValidationContainer>
         </FormElementContainer>
         <FormElementContainer>
           <Button type="submit">Sign in</Button>

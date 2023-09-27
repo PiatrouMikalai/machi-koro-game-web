@@ -1,11 +1,13 @@
-import React, { FC, ButtonHTMLAttributes } from 'react';
+import React, { FC, ButtonHTMLAttributes, memo } from 'react';
 
 import * as S from './styled';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: React.ReactNode;
+}
 
-const Button: FC<ButtonProps> = (props) => {
-  return <S.Button {...props} />;
+const Button: FC<ButtonProps> = ({ children, ...rest }) => {
+  return <S.Button {...rest}>{children}</S.Button>;
 };
 
-export default Button;
+export default memo(Button);
