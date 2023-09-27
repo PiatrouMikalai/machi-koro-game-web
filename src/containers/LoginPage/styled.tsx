@@ -15,11 +15,15 @@ export const FormContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   padding: 3rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0) 0 0 0 0, rgba(0, 0, 0, 0) 0 0 0 0, rgba(0, 0, 0, 0.1) 0 1px 3px 0, rgba(0, 0, 0, 0.1) 0 1px 2px -1px;
+  box-shadow:
+    rgba(0, 0, 0, 0) 0 0 0 0,
+    rgba(0, 0, 0, 0) 0 0 0 0,
+    rgba(0, 0, 0, 0.1) 0 1px 3px 0,
+    rgba(0, 0, 0, 0.1) 0 1px 2px -1px;
 `;
 
 export const Title = styled.h2`

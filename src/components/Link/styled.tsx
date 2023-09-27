@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
 const linkStyle = css`
@@ -11,11 +11,11 @@ const linkStyle = css`
   &:hover {
     color: rgb(99, 102, 241);
   }
-`
+`;
 export const Link = styled.a`
   ${linkStyle}
 `;
 
 export const RouterLink = styled(ReactRouterLink)`
   ${linkStyle}
-`
+`;

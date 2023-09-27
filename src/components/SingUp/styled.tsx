@@ -6,7 +6,7 @@ export const TermsOfServiceTitle = styled.p`
   font-size: 0.875rem;
   line-height: 1.5rem;
   text-align: start;
-  
+
   a {
     font-weight: 400;
   }

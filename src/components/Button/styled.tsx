@@ -12,7 +12,7 @@ export const Button = styled.button`
   font-weight: 600;
   line-height: 1.5rem;
   cursor: pointer;
-  
+
   &:hover {
     background-color: rgb(99, 102, 241);
   }
