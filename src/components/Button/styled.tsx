@@ -5,8 +5,8 @@ export const Button = styled.button`
   box-sizing: border-box;
   border-width: 0;
   padding: 0.375rem 0.75rem;
-  background-color: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
+  background-color: #4f46e5;
+  color: #ffffff;
   border-radius: 0.375rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -14,6 +14,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(99, 102, 241);
+    background-color: #6366f1;
   }
 `;

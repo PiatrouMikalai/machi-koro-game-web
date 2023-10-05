@@ -4,7 +4,7 @@ export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   height: 1rem;
   width: 1rem;
   margin: 0;
-  accent-color: rgb(79, 70, 229);
+  accent-color: #4f46e5;
 
   //todo complete checkbox styling
   //display: block;

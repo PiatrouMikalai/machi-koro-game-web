@@ -5,7 +5,7 @@ export const Label = styled.label`
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.5rem;
+  //line-height: 1.5rem;
   text-align: start;
 `;
 
@@ -44,12 +44,28 @@ export const InputMessage = styled.span`
   font-size: 0.75rem;
   letter-spacing: 0.025em;
   line-height: 1.5;
-  font-weight: 500;
-  margin: 0.25rem 0 0 0.25rem;
+  font-weight: 300;
 `;
 
-export const InputWithLabelContainer = styled.div`
+export const InputWithLabelContainer = styled.div<{ position?: string }>`
   margin-top: 0.5rem;
+  ${(props) =>
+    props?.position &&
+    css`
+      position: ${props.position};
+    `}
+`;
+
+export const InputIconContainer = styled.div<{ width?: string }>`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: ${(props) => props.width || '2rem'};
+  cursor: pointer;
 `;
 
 export const InputValidationContainer = styled.div<{ error?: boolean }>`
@@ -72,6 +88,7 @@ export const InputValidationContainer = styled.div<{ error?: boolean }>`
           span {
             color: #f56565;
             visibility: visible;
+            margin: 0.25rem 0 0 0.25rem;
           }
         `
       : css`
