@@ -8,7 +8,6 @@ import {
   Input,
   InputMessage,
   InputWithLabelContainer,
-  InputValidationContainer,
   InputIconContainer,
 } from '../Input/styled';
 import {
@@ -19,6 +18,7 @@ import {
 import { PasswordTitleContainer } from './styled';
 import { RouterLink } from '../Link/styled';
 import { EMAIL } from '../../utils/regexp';
+import { ThemeProvider } from 'styled-components';
 
 interface LoginForm {
   email: string;
@@ -44,11 +44,14 @@ function LogIn() {
     console.log(data);
   };
 
+  const errorProvider = (isFieldError: boolean) =>
+    isFieldError ? { error: '#f56565' } : {};
+
   return (
     <>
       <Title>Sign in to your account</Title>
       <form onSubmit={handleSubmit(handleSingIn)} noValidate>
-        <InputValidationContainer error={!!errors?.email}>
+        <ThemeProvider theme={() => errorProvider(!!errors?.email)}>
           <Label htmlFor="email">Email</Label>
           <InputWithLabelContainer>
             <Input
@@ -64,9 +67,9 @@ function LogIn() {
             />
           </InputWithLabelContainer>
           <InputMessage>{errors?.email?.message}</InputMessage>
-        </InputValidationContainer>
+        </ThemeProvider>
         <FormElementContainer>
-          <InputValidationContainer error={!!errors?.password}>
+          <ThemeProvider theme={() => errorProvider(!!errors?.password)}>
             <PasswordTitleContainer>
               <Label htmlFor="password">Password</Label>
               {/*<Link href="#">Forgot password?</Link>*/}
@@ -89,7 +92,7 @@ function LogIn() {
               </InputIconContainer>
             </InputWithLabelContainer>
             <InputMessage>{errors?.password?.message}</InputMessage>
-          </InputValidationContainer>
+          </ThemeProvider>
         </FormElementContainer>
         <FormElementContainer>
           <Button type="submit">Sign in</Button>
