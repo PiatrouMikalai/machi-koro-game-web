@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './containers/Main';
 import LogIn from './components/LogIn';
-import SingUp from './components/SingUp';
+import SignUp from './components/SignUp';
 import LoginPage from './containers/LoginPage';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       path: '/signup',
       element: (
         <LoginPage>
-          <SingUp />
+          <SignUp />
         </LoginPage>
       ),
     },
