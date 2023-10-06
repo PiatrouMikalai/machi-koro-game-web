@@ -11,3 +11,7 @@ export const TermsOfServiceTitle = styled.div`
     font-weight: 400;
   }
 `;
+
+export const TermsElementContainer = styled.div`
+  margin-top: 0.75rem;
+`;

@@ -39,7 +39,7 @@ export const Input = styled.input`
   }
 `;
 
-export const InputMessage = styled.span`
+export const InputMessage = styled.span<{ noMargin?: boolean }>`
   box-sizing: border-box;
   display: flex;
   font-size: 0.75rem;
@@ -48,7 +48,8 @@ export const InputMessage = styled.span`
   font-weight: 300;
   color: ${(props) => props?.theme?.error || '#000000FF'};
   visibility: ${(props) => (props?.theme?.error ? 'visible' : 'hidden')};
-  margin: ${(props) => (props?.theme?.error ? '0.25rem 0 0 0.25rem' : '0')};
+  margin: ${(props) =>
+    props?.theme?.error && !props.noMargin ? '0.25rem 0 0 0.25rem' : '0'};
 `;
 
 export const InputWithLabelContainer = styled.div<{ position?: string }>`

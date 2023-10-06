@@ -16,11 +16,12 @@ import {
   InputMessage,
   InputWithLabelContainer,
 } from '../Input/styled';
-import { TermsOfServiceTitle } from './styled';
+import { TermsElementContainer, TermsOfServiceTitle } from './styled';
 import { RouterLink } from '../Link/styled';
 import { EMAIL } from '../../utils/regexp';
 import { ThemeProvider } from 'styled-components';
 import { PiEyeClosedLight, PiEyeLight } from 'react-icons/pi';
+import PasswordStrengthBar from '../PasswordStrengthBar';
 
 interface SignUpForm {
   username: string;
@@ -29,10 +30,13 @@ interface SignUpForm {
   isAgreedWithTerms: boolean;
 }
 
+const MIN_PASSWORD_LENGTH = 6;
+
 function SignUp() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<SignUpForm>({
     mode: 'onSubmit',
@@ -45,7 +49,6 @@ function SignUp() {
   });
 
   const [isPasswordVisible, setPasswordVisible] = useState(false);
-  console.error(errors);
 
   const handleSingUp: SubmitHandler<SignUpForm> = (data) => {
     console.log(data);
@@ -99,7 +102,13 @@ function SignUp() {
               <Input
                 id="password"
                 type={isPasswordVisible ? 'text' : 'password'}
-                {...register('password', { required: 'Password is required' })}
+                {...register('password', {
+                  required: 'Password is required',
+                  minLength: {
+                    value: MIN_PASSWORD_LENGTH,
+                    message: `Please enter minimum ${MIN_PASSWORD_LENGTH} characters`,
+                  },
+                })}
               />
               <InputIconContainer
                 width="3rem"
@@ -112,10 +121,18 @@ function SignUp() {
                 )}
               </InputIconContainer>
             </InputWithLabelContainer>
-            <InputMessage>{errors?.password?.message}</InputMessage>
+            <PasswordStrengthBar
+              password={watch('password')}
+              minLength={MIN_PASSWORD_LENGTH}
+              validationMessage={
+                <InputMessage noMargin>
+                  {errors?.password?.message}
+                </InputMessage>
+              }
+            />
           </ThemeProvider>
         </FormElementContainer>
-        <FormElementContainer>
+        <TermsElementContainer>
           <ThemeProvider
             theme={() => errorProvider(!!errors?.isAgreedWithTerms)}
           >
@@ -130,7 +147,7 @@ function SignUp() {
             </TermsOfServiceTitle>
             <InputMessage>{errors?.isAgreedWithTerms?.message}</InputMessage>
           </ThemeProvider>
-        </FormElementContainer>
+        </TermsElementContainer>
         <FormElementContainer>
           <Button type="submit">Sign Up</Button>
         </FormElementContainer>
