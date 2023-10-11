@@ -57,13 +57,19 @@ export const IconContainer = styled.div`
   margin-right: 0.75rem;
 `;
 
-export const ButtonContainer = styled.button<{ severity?: SeverityType }>`
+export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  box-sizing: border-box;
-  padding: 0.3rem;
   margin-left: auto;
   margin-right: -0.5rem;
+`;
+
+export const Button = styled.button<{ severity?: SeverityType }>`
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 0.3rem;
   cursor: pointer;
 
   outline: none;
@@ -87,7 +93,7 @@ export const ButtonContainer = styled.button<{ severity?: SeverityType }>`
   }
 `;
 
-export const Button = styled(MdClose)`
+export const ButtonIcon = styled(MdClose)`
   height: 1.25rem;
   width: 1.25rem;
 `;

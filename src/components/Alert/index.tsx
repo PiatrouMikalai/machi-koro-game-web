@@ -45,8 +45,10 @@ function Alert({
       {renderIcon && <S.IconContainer>{renderIcon}</S.IconContainer>}
       <S.Value>{children}</S.Value>
       {onClose && (
-        <S.ButtonContainer severity={severity} onClick={onClose}>
-          <S.Button />
+        <S.ButtonContainer>
+          <S.Button severity={severity} onClick={onClose}>
+            <S.ButtonIcon />
+          </S.Button>
         </S.ButtonContainer>
       )}
     </S.Container>
