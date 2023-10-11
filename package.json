@@ -12,6 +12,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/zxcvbn": "^4.4.2",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.199",
     "prettier": "3.0.3"
   }
 }
